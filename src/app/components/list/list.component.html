@@ -1,0 +1,5 @@
+<div> 
+    <app-todo *ngFor="let todo of dataS.todos | async" [todo] = "todo"></app-todo> 
+    <!-- in dataservice, sto ciclando sui suoi todos; 
+        con pipe ansync è direttamente html che sta a guardare valore che cambia, e lo mostra  -->
+</div>
