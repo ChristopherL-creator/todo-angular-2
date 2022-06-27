@@ -1,0 +1,23 @@
+header{ 
+    border-bottom: solid 3px crimson; 
+    border-left: solid 3px crimson; 
+    border-bottom-left-radius: 8px;
+    color: rgb(185, 0, 0);
+    margin-bottom: 16px; 
+    padding: 16px;
+} 
+
+header h1{ 
+    margin-top: 0px;
+} 
+
+nav{ 
+    display: flex;
+    gap: 16px;
+} 
+
+nav a { 
+    color: rgb(188, 0, 0);
+    font-weight: bold;
+    text-decoration: none;
+}

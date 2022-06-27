@@ -4,4 +4,8 @@
     <span>{{todo.tags | tagsString: ' #'}}</span>
     <span>{{todo.priority}}</span>
     <span>{{todo.creationDate | epochFormatter}}</span>
-</div>
+    <div>
+        <button (click)="todoCompleted.emit(todo)" [style.backgroundColor]="todo.priority | priorityColor" *ngIf="!todo?.doneDate">completato</button>
+        <button (click)="todoDeleted.emit(todo)" class="delete-btn" *ngIf="todo?.doneDate">cancella</button> 
+    </div>
+</div> 
