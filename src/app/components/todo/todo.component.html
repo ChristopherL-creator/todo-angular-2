@@ -1,7 +1,7 @@
 <div [style.borderColor]="todo.priority | priorityColor" class="container" *ngIf="todo"> 
     <span>{{todo.name | uppercase}}</span> 
     <!-- pernde name, e lo tradfora  in maiuscolo, tramite pipe -->
-    <span>{{todo.tags | tagsString: ' #'}}</span>
+    <span>{{todo.tags | tagsString: '#'}}</span>
     <span>{{todo.priority}}</span>
     <span>{{todo.creationDate | epochFormatter}}</span>
     <div>
