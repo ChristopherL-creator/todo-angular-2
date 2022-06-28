@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module'; 
 import {MatToolbarModule} from '@angular/material/toolbar'; 
 import {MatIconModule} from '@angular/material/icon'; 
-import {MatCardModule} from '@angular/material/card';
+import {MatCardModule} from '@angular/material/card'; 
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
@@ -16,7 +16,8 @@ import { TagsStringPipe } from './pipes/tags-string/tags-string.pipe';
 import { PrioritySortPipe } from './pipes/priority-sort/priority-sort.pipe';
 import { EditComponent } from './components/edit/edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatChipsModule} from '@angular/material/chips'; 
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule, 
     MatIconModule, 
     MatButtonModule, 
-    MatCardModule
+    MatCardModule, 
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
