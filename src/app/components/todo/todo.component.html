@@ -3,12 +3,10 @@
     <mat-card-content class="content"> 
         <span>Creato il: {{todo.creationDate | epochFormatter}}</span> 
         <span *ngIf="todo.doneDate">Completato il: {{todo.doneDate | epochFormatter}}</span>
-        <span>{{todo.tags | tagsString: '#'}}</span> 
-        <!-- <mat-chip ></mat-chip> -->
-        <mat-chip-list  aria-label="Tag selection">
-          <mat-chip *ngFor="tag of todo.tags"></mat-chip>
+        <span></span> 
+        <mat-chip-list *ngFor="let tag of todo.tags, let i = index" aria-label="Fish selection">
+          <mat-chip>{{todo.tags[i]}}</mat-chip>
         </mat-chip-list>
-        
     </mat-card-content>
     <mat-card-subtitle >{{todo.priority}}</mat-card-subtitle>
     <mat-card-actions align="end">

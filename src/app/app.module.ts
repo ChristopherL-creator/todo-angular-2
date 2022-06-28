@@ -17,7 +17,7 @@ import { PrioritySortPipe } from './pipes/priority-sort/priority-sort.pipe';
 import { EditComponent } from './components/edit/edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {MatButtonModule} from '@angular/material/button'; 
-import {MatChipsModule} from '@angular/material/chips'; 
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import {MatChipsModule} from '@angular/material/chips';
     PriorityColorPipe,
     TagsStringPipe,
     PrioritySortPipe,
-    EditComponent
+    EditComponent,
+
   ],
   imports: [
     BrowserModule,
