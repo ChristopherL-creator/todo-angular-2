@@ -1,13 +1,30 @@
-<div [style.borderColor]="todo.priority | priorityColor" class="container" *ngIf="todo"> 
-    <span>{{todo.name | uppercase}}</span> 
-    <!-- pernde name, e lo tradfora  in maiuscolo, tramite pipe -->
-    <span>{{todo.tags | tagsString: '#'}}</span>
-    <span>{{todo.priority}}</span>
-    <span>{{todo.creationDate | epochFormatter}}</span>
+<mat-card *ngIf="todo">
+    <mat-card-title>{{todo.name | uppercase}}</mat-card-title> 
+    <mat-card-content class="content"> 
+        <span>Creato il: {{todo.creationDate | epochFormatter}}</span> 
+        <span *ngIf="todo.doneDate">Completato il: {{todo.doneDate | epochFormatter}}</span>
+        <span>{{todo.tags | tagsString: '#'}}</span> 
+    </mat-card-content>
+    <mat-card-subtitle >{{todo.priority}}</mat-card-subtitle>
+    <mat-card-actions align="end">
+      <button (click)="todoCompleted.emit(todo)" *ngIf="!todo.doneDate" mat-icon-button> 
+        <mat-icon >done</mat-icon> 
+      </button>
+      <button (click)="todoDeleted.emit(todo)" *ngIf="todo.doneDate" mat-icon-button>
+        <mat-icon >delete</mat-icon> 
+      </button> 
+      <button routerLink="/edit/{{todo.id}}" *ngIf="!todo.doneDate" mat-icon-button> 
+        <mat-icon >edit</mat-icon> 
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+<!-- <div  class="container" > 
+
     <div>
         <button (click)="todoCompleted.emit(todo)" [style.backgroundColor]="todo.priority | priorityColor" *ngIf="!todo?.doneDate">Completato</button>
         <button (click)="todoDeleted.emit(todo)" class="delete-btn" *ngIf="todo?.doneDate">Cancella</button> 
         <button class="edit-btn" routerLink="/edit/{{todo.id}}" *ngIf="!todo.doneDate">Modifica</button> 
 
     </div>
-</div> 
+</div>  -->
