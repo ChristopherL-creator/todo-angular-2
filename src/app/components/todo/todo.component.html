@@ -1,4 +1,4 @@
-<mat-card *ngIf="todo">
+<mat-card [style.backgroundColor]="todo.priority | priorityColor" *ngIf="todo">
     <mat-card-title>{{todo.name | uppercase}}</mat-card-title> 
     <mat-card-content class="content"> 
         <span>Creato il: {{todo.creationDate | epochFormatter}}</span> 
