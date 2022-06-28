@@ -5,7 +5,7 @@
         <span *ngIf="todo.doneDate">Completato il: {{todo.doneDate | epochFormatter}}</span>
         <span></span> 
         <mat-chip-list *ngFor="let tag of todo.tags, let i = index" aria-label="Fish selection">
-          <mat-chip>{{todo.tags[i]}}</mat-chip>
+          <mat-basic-chip class="chip">{{todo.tags[i]}}</mat-basic-chip>
         </mat-chip-list>
     </mat-card-content>
     <mat-card-subtitle >{{todo.priority}}</mat-card-subtitle>
@@ -21,13 +21,3 @@
       </button>
     </mat-card-actions>
   </mat-card>
-
-<!-- <div  class="container" > 
-
-    <div>
-        <button (click)="todoCompleted.emit(todo)" [style.backgroundColor]="todo.priority | priorityColor" *ngIf="!todo?.doneDate">Completato</button>
-        <button (click)="todoDeleted.emit(todo)" class="delete-btn" *ngIf="todo?.doneDate">Cancella</button> 
-        <button class="edit-btn" routerLink="/edit/{{todo.id}}" *ngIf="!todo.doneDate">Modifica</button> 
-
-    </div>
-</div>  -->

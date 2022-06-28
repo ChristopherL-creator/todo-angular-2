@@ -21,4 +21,11 @@
 .content{ 
     display: flex;
     flex-direction: column;
+} 
+
+.chip{ 
+    margin: 8px; 
+    background-color: rgb(121, 1, 121); 
+    padding: 4px 8px;
+    border-radius: 20px;
 }
