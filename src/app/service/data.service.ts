@@ -6,7 +6,7 @@ import { Todo } from '../model/todo';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService { 
+export class DataService {
 
   private readonly BASE_URL = 'https://62b965c0ff109cd1dc911428.mockapi.io/todo'; 
 
@@ -50,20 +50,58 @@ return this.todos.pipe(
   } 
 
   completeTodo(todo: Todo){ 
-    const url = this.BASE_URL + '/' + todo.id; 
     const completedTodo = todo; 
     completedTodo.priority = -1; 
     completedTodo.doneDate = new Date().getTime() / 1000;
     console.log(completedTodo);
     
-    const headers = new HttpHeaders({ 'Content-Type': 'applcation/json'})
-    this.http.put<Todo>(url, completedTodo, {headers}).subscribe({ 
+    this.putTodo(completedTodo);
+  } 
+
+  getTodoById(id: string) {
+    // for (const todo of this.todos.value) {
+    //   //  todos sono behavioursubject 
+    //   if (todo.id === id) {
+    //     return todo;
+    //   }
+    // } 
+    // return null 
+    // se paths potrebbero non dare values 
+    // return this.todos.value.find(todo => todo.id === id); 
+    return this.todos.pipe( 
+      map(todos => todos.find(todo => todo.id === id))
+    )
+  } 
+
+  //  se ho id
+  putTodo(todo: Todo){ 
+    const url = this.BASE_URL + '/' + todo.id; 
+    const headers = new HttpHeaders({ 'Content-Type': 'applcation/json'});
+    this.http.put<Todo>(url, todo, {headers}).subscribe({ 
       next: todo => { 
-        const newArray = [...this.todos.value]
+        const newArray = [...this.todos.value];
         this.todos.next(newArray);
       }, 
       error: err => console.log(err)
       
     })
+  }
+
+  saveTodo(todo: Todo){ 
+    if (todo.id) {
+      this.putTodo(todo); 
+      return;
+    } 
+
+    //  se non ho id
+    const headers = new HttpHeaders({ 'Content-Type': 'applcation/json'}); 
+    this.http.post<Todo>(this.BASE_URL, todo, {headers}).subscribe({ 
+      next: todo => { 
+        const newArray = [...this.todos.value, todo];
+        this.todos.next(newArray);
+      }, 
+      error: err => console.log(err)
+    })
+
   }
 }

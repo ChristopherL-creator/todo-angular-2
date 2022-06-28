@@ -5,7 +5,9 @@
     <span>{{todo.priority}}</span>
     <span>{{todo.creationDate | epochFormatter}}</span>
     <div>
-        <button (click)="todoCompleted.emit(todo)" [style.backgroundColor]="todo.priority | priorityColor" *ngIf="!todo?.doneDate">completato</button>
-        <button (click)="todoDeleted.emit(todo)" class="delete-btn" *ngIf="todo?.doneDate">cancella</button> 
+        <button (click)="todoCompleted.emit(todo)" [style.backgroundColor]="todo.priority | priorityColor" *ngIf="!todo?.doneDate">Completato</button>
+        <button (click)="todoDeleted.emit(todo)" class="delete-btn" *ngIf="todo?.doneDate">Cancella</button> 
+        <button class="edit-btn" routerLink="/edit/{{todo.id}}" *ngIf="!todo.doneDate">Modifica</button> 
+
     </div>
 </div> 
