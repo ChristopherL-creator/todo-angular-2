@@ -1,38 +1,44 @@
-.container{ 
+.container{
     display: flex;
     flex-direction: column;
     gap: 8px;
     padding: 8px;
-    margin: 8px; 
+    margin: 8px;
 
-} 
+}
 
-button{ 
+button{
     border: none;
-    border-radius: 4px; 
+    border-radius: 4px;
     background-color: crimson;
     color: whitesmoke;
-} 
+}
 
-button:disabled{ 
+button:disabled{
     background-color: rgba(218, 23, 62, 0.534)
 }
 
-.edit-btn{ 
+.edit-btn{
     background-color: rgb(190, 190, 190);
-} 
+}
 
-.form-field{ 
+.form-field{
     display: flex;
     gap: 8px;
-} 
+}
 
 
-.label{ 
+.label{
     display: inline-block;
     width: 50px;
-} 
+}
 
-input{ 
+input{
     min-width: 50%;
 }
+
+.slider-custom{
+  width: 100%;
+}
+
+

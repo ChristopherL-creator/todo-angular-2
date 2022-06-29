@@ -6,7 +6,7 @@
         <div class="chip-list">
           <mat-chip-list >
             <mat-chip color="accent" selected class="chip" *ngFor="let tag of todo.tags">#{{tag}}</mat-chip>
-          </mat-chip-list> 
+          </mat-chip-list>
         </div>
         <div class="divider" [style.backgroundColor]="todo.priority | priorityColor"></div>
     </mat-card-content>
@@ -18,7 +18,7 @@
       <button (click)="todoCompleted.emit(todo)" *ngIf="!todo.doneDate" mat-icon-button>
         <mat-icon >done</mat-icon>
       </button>
-      <button (click)="todoDeleted.emit(todo)" *ngIf="todo.doneDate" mat-icon-button>
+      <button (click)="openDialog()" *ngIf="todo.doneDate" mat-icon-button>
         <mat-icon >delete</mat-icon>
       </button>
     </mat-card-actions>

@@ -7,10 +7,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
-import {MatProgressBarModule} from '@angular/material/progress-bar'; 
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatSliderModule} from '@angular/material/slider';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './components/list/list.component';
@@ -22,6 +22,7 @@ import { PrioritySortPipe } from './pipes/priority-sort/priority-sort.pipe';
 import { EditComponent } from './components/edit/edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { DeleteDialogueComponent } from './delete-dialogue/delete-dialogue.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatButtonModule} from '@angular/material/button';
     TagsStringPipe,
     PrioritySortPipe,
     EditComponent,
+    DeleteDialogueComponent,
 
   ],
   imports: [
@@ -46,9 +48,10 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
-    MatProgressBarModule, 
-    MatDialogModule, 
-    MatInputModule
+    MatProgressBarModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
