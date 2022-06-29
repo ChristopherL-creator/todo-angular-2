@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from 'src/app/model/todo';
 import { DataService } from 'src/app/service/data.service';
@@ -15,17 +16,25 @@ export class EditComponent implements OnInit {
     creationDate: -1, 
     tags: [], 
     priority: 0 
-  };
+  }; 
 
-  constructor(public dataS: DataService, private route: ActivatedRoute, private router: Router) { } 
+  public id: string | null = '';
+
+  constructor( 
+    public dataS: DataService,  
+    public dialogRef: MatDialogRef<EditComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any 
+    ) { } 
   //  activated rotute mi mostr urls da cui prendo info
 
-  ngOnInit(): void { 
-    const id = this.route.snapshot.paramMap.get('id'); 
-    if (id) {
-      this.dataS.getTodoById(id).subscribe({ 
+  ngOnInit(): void {  
+    if (this.data) {
+      this.id = this.data.id; 
+    }
+    if (this.id) {
+      this.dataS.getTodoById(this.id).subscribe({ 
         next: t => { 
-          if (t) {
+          if(t) {
             this.todo = t
           }
         }, 
@@ -53,6 +62,7 @@ export class EditComponent implements OnInit {
     } 
 
     this.dataS.saveTodo(this.todo); 
-    this.router.navigate(['/todo']);
+    this.dialogRef.close();
+    // this.router.navigate(['/todo']);
   }
 }

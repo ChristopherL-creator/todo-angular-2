@@ -77,7 +77,7 @@ return this.todos.pipe(
   putTodo(todo: Todo){ 
     const url = this.BASE_URL + '/' + todo.id; 
     const headers = new HttpHeaders({ 'Content-Type': 'applcation/json'});
-    this.http.put<Todo>(url, todo, {headers}).subscribe({ 
+    this.http.put<Todo>(url, todo, { headers }).subscribe({ 
       next: todo => { 
         const newArray = [...this.todos.value];
         this.todos.next(newArray);

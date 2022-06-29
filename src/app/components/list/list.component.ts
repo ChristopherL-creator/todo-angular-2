@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Todo } from 'src/app/model/todo';
 import { DataService } from 'src/app/service/data.service';
+import { EditComponent } from '../edit/edit.component';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +13,10 @@ import { DataService } from 'src/app/service/data.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(public dataS: DataService, private route: ActivatedRoute) { }
+  constructor(public dataS: DataService, 
+              private route: ActivatedRoute, 
+              public dialog: MatDialog) { } 
+              //  per importare matdialog
   // oimporta serviio creato da noi
 
   ngOnInit(): void { 
@@ -27,6 +33,21 @@ export class ListComponent implements OnInit {
       return this.dataS.getDoneTodos();
     } 
     // restituisco observable, che può cambiare nel tempo
+  } 
+
+  openDialog(todo?: Todo){ 
+   if (todo) {
+     this.dialog.open(EditComponent, { 
+       maxWidth: '500px', 
+       width: '90%',
+       data: {id: todo.id}
+     });
+   } else { 
+    this.dialog.open(EditComponent, { 
+      maxWidth: '500px', 
+      width: '90%'
+    });
+   }
   }
 
 }

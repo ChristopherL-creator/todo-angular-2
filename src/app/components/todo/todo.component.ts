@@ -9,8 +9,9 @@ import { Todo } from 'src/app/model/todo';
 export class TodoComponent implements OnInit {
 
   @Input() todo?: Todo; 
-  @Output() todoCompleted = new EventEmitter<Todo>() 
-  @Output() todoDeleted = new EventEmitter<Todo>()
+  @Output() todoCompleted = new EventEmitter<Todo>(); 
+  @Output() todoDeleted = new EventEmitter<Todo>(); 
+  @Output() todoEdited = new EventEmitter<Todo>();
 
   constructor() { }
 
