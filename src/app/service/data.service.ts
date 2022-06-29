@@ -76,7 +76,7 @@ return this.todos.pipe(
   //  se ho id
   putTodo(todo: Todo){ 
     const url = this.BASE_URL + '/' + todo.id; 
-    const headers = new HttpHeaders({ 'Content-Type': 'applcation/json'});
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json'});
     this.http.put<Todo>(url, todo, { headers }).subscribe({ 
       next: todo => { 
         const newArray = [...this.todos.value];
@@ -88,13 +88,15 @@ return this.todos.pipe(
   }
 
   saveTodo(todo: Todo){ 
+
+    
     if (todo.id) {
       this.putTodo(todo); 
       return;
     } 
 
     //  se non ho id
-    const headers = new HttpHeaders({ 'Content-Type': 'applcation/json'}); 
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json'}); 
     this.http.post<Todo>(this.BASE_URL, todo, {headers}).subscribe({ 
       next: todo => { 
         const newArray = [...this.todos.value, todo];
