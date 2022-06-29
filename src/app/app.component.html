@@ -6,7 +6,13 @@
   </button>
   <button routerLink="/done" mat-icon-button>
     <mat-icon >done</mat-icon>
-  </button>
+  </button> 
+  <button (click)="changeTheme()" *ngIf="isLight" mat-icon-button>
+    <mat-icon >dark_mode</mat-icon>
+  </button> 
+  <button (click)="changeTheme()" *ngIf="!isLight" mat-icon-button>
+    <mat-icon >light_mode</mat-icon>
+  </button> 
 </mat-toolbar>
 
 <!-- <app-list></app-list> -->

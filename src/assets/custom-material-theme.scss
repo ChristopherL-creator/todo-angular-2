@@ -1,0 +1,113 @@
+@use '@angular/material' as mat; 
+
+@include mat.core(); 
+
+$crimson-palette: (
+    50 : #fde3e8,
+    100 : #f9b9c5,
+    200 : #f68a9e,
+    300 : #f25b77,
+    400 : #ef3759,
+    500 : #ec143c,
+    600 : #ea1236,
+    700 : #e70e2e,
+    800 : #e40b27,
+    900 : #df061a,
+    A100 : #ffffff,
+    A200 : #ffd4d6,
+    A400 : #ffa1a6,
+    A700 : #ff878e,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+); 
+
+$lime-palette: (
+    50 : #edfde3,
+    100 : #d3f9b9,
+    200 : #b6f68a,
+    300 : #99f25b,
+    400 : #83ef37,
+    500 : #6dec14,
+    600 : #65ea12,
+    700 : #5ae70e,
+    800 : #50e40b,
+    900 : #3edf06,
+    A100 : #ffffff,
+    A200 : #ddffd4,
+    A400 : #b4ffa1,
+    A700 : #a0ff87,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+//con dollaro si definscono variabli 
+$dark-primary-color: mat.define-palette($crimson-palette);
+$dark-accent-color: mat.define-palette($lime-palette); 
+// colori associati a dark 
+
+$light-primary-color: mat.define-palette($crimson-palette);
+$light-accent-color: mat.define-palette($lime-palette); 
+
+$dark-theme: mat.define-dark-theme( 
+     ( 
+        color: 
+        ( 
+            primary: $dark-primary-color, 
+            accent: $dark-accent-color, 
+        ) 
+    )
+); 
+
+$light-theme: mat.define-light-theme( 
+    ( 
+        color: 
+        ( 
+            primary: $light-primary-color, 
+            accent: $light-accent-color, 
+        ) 
+    )
+); 
+
+@include mat.all-component-themes($dark-theme); 
+
+
+
+// Apply the light theme only when the `.my-light-theme` CSS class is applied
+// to an ancestor element of the components (such as `body`).
+.my-light-theme {
+    @include mat.all-component-themes($light-theme);
+    background-color: mat.get-color-from-palette($light-primary-color, 200); 
+} 
+
+body{ 
+    background-color: mat.get-color-from-palette($dark-primary-color, 500);
+}

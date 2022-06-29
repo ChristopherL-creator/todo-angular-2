@@ -4,8 +4,8 @@
         <span>Creato il: {{todo.creationDate | epochFormatter}}</span>
         <span *ngIf="todo.doneDate">Completato il: {{todo.doneDate | epochFormatter}}</span>
         <div class="chip-list">
-          <mat-chip-list *ngFor="let tag of todo.tags" aria-label="Fish selection">
-            <mat-basic-chip class="chip">#{{tag}}</mat-basic-chip>
+          <mat-chip-list >
+            <mat-chip color="accent" selected class="chip" *ngFor="let tag of todo.tags">#{{tag}}</mat-chip>
           </mat-chip-list> 
         </div>
         <div class="divider" [style.backgroundColor]="todo.priority | priorityColor"></div>

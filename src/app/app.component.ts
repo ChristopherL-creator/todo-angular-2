@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'minimalist-todo';
+  title = 'minimalist-todo'; 
+
+  isLight = false; 
+
+  changeTheme(){ 
+    if (this.isLight) {
+      this.isLight = false;
+    } else { 
+      this.isLight = true;
+    } 
+    document.body.classList.toggle('my-light-theme')
+  }
 }
