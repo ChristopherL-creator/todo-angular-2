@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogueComponent } from 'src/app/delete-dialogue/delete-dialogue.component';
+import { DeleteDialogueComponent } from 'src/app/components/delete-dialogue/delete-dialogue.component';
 import { Todo } from 'src/app/model/todo';
 import { EditComponent } from '../edit/edit.component';
 
