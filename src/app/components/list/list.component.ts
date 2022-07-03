@@ -13,38 +13,38 @@ import { EditComponent } from '../edit/edit.component';
 })
 export class ListComponent implements OnInit {
 
-  constructor(public dataS: DataService, 
-              private route: ActivatedRoute, 
-              public dialog: MatDialog) { } 
+  constructor(public dataS: DataService,
+              private route: ActivatedRoute,
+              public dialog: MatDialog) { }
               //  per importare matdialog
   // oimporta serviio creato da noi
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     console.log(this.route.data);
     //  mi riprendp cosiì il data che ho passato
-  } 
+  }
 
-  getTodos(){ 
+  getTodos(){
     // a seconda della root, mi cambia la funione nel data service
-    const isActive = this.route.snapshot.data['isActive']; 
+    const isActive = this.route.snapshot.data['isActive'];
     if (isActive) {
       return this.dataS.getActiveTodos();
-    } else { 
+    } else {
       return this.dataS.getDoneTodos();
-    } 
+    }
     // restituisco observable, che può cambiare nel tempo
-  } 
+  }
 
-  openDialog(todo?: Todo){ 
+  openDialog(todo?: Todo){
    if (todo) {
-     this.dialog.open(EditComponent, { 
-       maxWidth: '500px', 
+     this.dialog.open(EditComponent, {
+       maxWidth: '500px',
        width: '90%',
        data: {id: todo.id}
      });
-   } else { 
-    this.dialog.open(EditComponent, { 
-      maxWidth: '500px', 
+   } else {
+    this.dialog.open(EditComponent, {
+      maxWidth: '500px',
       width: '90%'
     });
    }

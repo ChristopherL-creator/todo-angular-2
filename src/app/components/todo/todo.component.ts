@@ -23,13 +23,13 @@ export class TodoComponent implements OnInit {
 
   openDialog(todo?: Todo){
     if (todo) {
-      this.dialog.open(DeleteDialogueComponent, {
+      this.dialog.open(EditComponent, {
         maxWidth: '500px',
         width: '90%',
         data: {id: todo.id}
       });
     } else {
-     this.dialog.open(EditComponent, {
+     this.dialog.open(DeleteDialogueComponent, {
        maxWidth: '500px',
        width: '90%'
      });
