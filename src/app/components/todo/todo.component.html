@@ -18,7 +18,7 @@
       <button (click)="todoCompleted.emit(todo)" *ngIf="!todo.doneDate" mat-icon-button>
         <mat-icon >done</mat-icon>
       </button>
-      <button (click)="openDialog()" *ngIf="todo.doneDate" mat-icon-button>
+      <button (click)="todoDeleted.emit(todo)" *ngIf="todo.doneDate" mat-icon-button>
         <mat-icon >delete</mat-icon>
       </button>
     </mat-card-actions>
