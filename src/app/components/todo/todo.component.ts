@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteDialogueComponent } from 'src/app/delete-dialogue/delete-dialogue.component';
+import { DeleteDialogueComponent } from 'src/app/components/delete-dialogue/delete-dialogue.component';
 import { Todo } from 'src/app/model/todo';
 import { EditComponent } from '../edit/edit.component';
 
@@ -23,13 +23,13 @@ export class TodoComponent implements OnInit {
 
   openDialog(todo?: Todo){
     if (todo) {
-      this.dialog.open(DeleteDialogueComponent, {
+      this.dialog.open(EditComponent, {
         maxWidth: '500px',
         width: '90%',
         data: {id: todo.id}
       });
     } else {
-     this.dialog.open(EditComponent, {
+     this.dialog.open(DeleteDialogueComponent, {
        maxWidth: '500px',
        width: '90%'
      });

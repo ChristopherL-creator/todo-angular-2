@@ -22,7 +22,7 @@ import { PrioritySortPipe } from './pipes/priority-sort/priority-sort.pipe';
 import { EditComponent } from './components/edit/edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-import { DeleteDialogueComponent } from './delete-dialogue/delete-dialogue.component';
+import { DeleteDialogueComponent } from './components/delete-dialogue/delete-dialogue.component';
 import { PriorityStringPipe } from './pipes/priority-string/priority-string.pipe';
 
 @NgModule({
