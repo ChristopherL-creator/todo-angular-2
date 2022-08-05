@@ -24,6 +24,7 @@ export class EditComponent implements OnInit {
   addOnBlur = true;
 
   readonly separatorKeysCodes = [ENTER, COMMA, SPACE] as const;
+
   tags: Todo[] = [];
 
   constructor(
